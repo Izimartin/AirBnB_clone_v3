@@ -1,0 +1,28 @@
+name: Converted Workflow
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        os:
+          - ubuntu-18.04
+        python-version:
+          - '3.4'
+    steps:
+      - name: 'Set up Python ${{ matrix.python-version }}'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '${{ matrix.python-version }}'
+      - uses: actions/checkout@v2
+      - run: sudo apt-get update
+      - run: sudo pip install --upgrade pip
+      - run: sudo apt-get install --upgrade python3-pip
+      - run: pip install -r requirements.txt
+      - run: ./dev/travis_init_test.sh
