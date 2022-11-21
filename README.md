@@ -212,7 +212,7 @@ github repo
 
 ## Authors
 
-* Ephraim M. Wangulu, [@efuraimuJS](https://github.com/efuraimuJS)
+* Martins Akhivbareme, [@Izimartin](https://github.com/Izimartin)
 
 ## License
 
